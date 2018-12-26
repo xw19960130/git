@@ -1,0 +1,66 @@
+命令：
+注册用户名 邮箱（唯一标识符）git config --global user.name||email
+git status ：查询暂存区
+git add：将本地文件，添加到暂存区
+git commit：将暂存区的内容 提交到本地仓库（分支{默认主分支master分支}）
+git push：将本地仓库的内容 推送到 远程仓库
+git pull：将远程仓库的内容 拉取到 本地仓库
+
+git托管网站：（https://github.com/）
+进行注册！
+
+为了 在本地 和远程仓库之间进行 免密钥登入，可以配置ssh
+
+ssh：本地与远程进行关联（计算机关联）
+配置ssh ：先在本地配置，先发给远程
+
+现在本地生成ssh：
+ssh-keygen -t rsa -C xwang8866@163.com（自己的登入邮箱）后一直回车
+
+发送给远程：
+github - settings - SSH and....
+new SSH 
+Title 任意
+Key 就是刚刚在本地生成的SSH文件 目录在c/Users/Administrator/.ssh下的id_rsa.pub文件当中的值copy进key
+然后测试连通性：
+命令：ssh -T git@github.com
+跳出yes/no 输入yes弹出successfully连通成功！.shh目录会多出一个known_hosts文件，如果失败的话就多试几次github网站的网络不稳定，检查key的回车符和空格！
+
+在本地新建一个git项目
+在项目的根目录 右键 - git bash 输入命令 git init
+然后检查项目根目录会增加一个.git文件。
+
+在远程创建一个git项目
+点击github网站右上角头像-your profile进入页面然后点击
+使用github前需要进行邮箱的验证开启git的所有功能，注册成功后会发送一个邮件到你的邮箱，然后进入登入一次刚刚注册的git邮箱密码就行！
+Repositories - New一个git项目
+public 公开项目
+private 私有项目 输入项目名字后创建项目
+建立项目完成后会生成一个唯一标识符 两种形式https,ssh
+https://github.com/xw19960130/mygit.git
+git@github.com:xw19960130/mygit.git
+
+将本地项目与远程项目进行关联
+
+项目与远程项目进行关联
+输入命令：git remote add origin + 唯一标识（https，ssh）
+
+第一次发布项目（本地-远程）
+git add +当前目录的所有文件 //文件发送到暂存区 
+git commit -m "注释内容" //暂存区发送到本地分支（默认是master）
+git push -u origin master //发送到远程服务器
+
+刷新一下页面发现文件已经到了远程服务器
+
+第一次下载远程项目 
+新建一个文件夹在根目录右击git bash进入命令界面
+$ git clone git@github.com:xw19960130/mygit.git
+
+
+
+
+
+
+
+
+
