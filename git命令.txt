@@ -1,4 +1,5 @@
 命令：
+git --version 检测是否安装成功！
 注册用户名 邮箱（唯一标识符）git config --global user.name||email
 git status ：查询暂存区
 git add：将本地文件，添加到暂存区
@@ -45,7 +46,7 @@ git@github.com:xw19960130/mygit.git
 项目与远程项目进行关联
 输入命令：git remote add origin + 唯一标识（https，ssh）
 
-第一次发布项目（本地-远程）
+第一次提交项目（本地-远程）
 git add .或者 +当前目录的所有文件 //文件发送到暂存区 
 git commit -m "注释内容" //暂存区发送到本地分支（默认是master）
 git push -u origin master //发送到远程服务器
@@ -57,8 +58,29 @@ git push -u origin master //发送到远程服务器
 $ git clone git@github.com:xw19960130/mygit.git
 
 
-再次提价步骤区别第三部
-git push origin master就行 不要-u
+再次提价步骤区别第三部（本地-远程）
+git add .或者 +当前目录的所有文件 //文件发送到暂存区 
+git commit -m "注释内容" //暂存区发送到本地分支（默认是master）
+git push origin master就行 不要-u //发送到远程服务器
+
+更新（在文件根目录右击git bash）
+git add .或者 +当前目录的所有文件 //文件发送到暂存区 
+git commit -m "注释内容" //暂存区发送到本地分支（默认是master）
+git push //发送到远程服务器
+
+远程更新到本地 （在文件根目录右击git bash）
+
+直接git pull
+
+
+git多个人 团队协作开发
+
+github网站中 点击一个远程项目 -settings - Collaborators
+增加协作者：add Collaborators 写入github账号的名称或邮箱就可以添加成功！发送邀请链接 合作伙伴：打开该链接、接受邀请
+
+
+
+
 
 
 

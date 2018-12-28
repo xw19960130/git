@@ -1,0 +1,85 @@
+1.
+svn常见操作：
+a.发布项目：项目组长 将本机的项目 第一次发布到中央仓库
+b.下载项目（检出项目、check out）：组员 将中央仓库的项目 第一次下载到本机
+c.提交：将本地修改的内容，同步提交到服务器中（本地->服务器）
+	-编写完某一个小功能、每天下班前 提交
+d.更新：将服务器的最新代码同步提交到本地中（服务器->本地）
+	-编写功能之前，每天上班前更新
+
+--编写之前要更新、写完之后立刻提交。
+
+提交、更新：及时操作
+
+
+2.svn安装 服务器：Subversion v1.8.17.msi   http://download.csdn.net/detail/u011617097/9306745
+
+配置PATH（bin）
+验证：
+svn --version 出版本号就代表安装成功！
+
+3.将本地目录设置为 中央仓库（保存项目的各个历史版本）
+svnadmin create
+
+4.启动svn服务
+a.命令行方式
+svnserve -d -r F:\svn （命令行一关闭服务自动终止，cmd命令不能关闭）
+b.注册系统方式（推荐）
+sc create 服务名 binpath="E:\svn\Subversion\bin\svnserve.exe --service -r F:\svn " start=auto depend=Tcpip (找到svn安装目录)
+
+5.访问项目：权限
+a.匿名访问
+	本地仓库\..\conf\svnserve.conf
+开始匿名访问： 19行附近（注意要顶格写不能留空格） anon-access = read（注释打开）可读:read/可写：write/无权：none
+
+b.授权访问
+	本地仓库\..\conf\svnserve.conf
+开始授权访问： 20行附近（注意要顶格写不能留空格） auth-access = write（注释打开）
+27行附近 password-db = passwd（注释打开 表示授权人的用户名密码 存放在passwd 文件中）
+36行附近 authz-db = authz（注释打开 表示权限文件是authz）
+ 
+conf目录下
+编写用户文件：
+passwd文件：
+【users】
+用户名=密码  key/vlues键值对方式
+[users]
+zs=abc
+ls=123
+
+编写授权文件authz：
+21行左右 分组：[groups]
+dev=zs,ls
+
+配置组权限：
+rw意思可读可写，*（全部）=不写的话就是无法操作，代码意思就是除了dev组外其余组都无权限，[/]根目录的意思
+[/]
+@dev=rw
+*=
+
+使用：
+项目组长：发布项目
+组员：检出项目（下载）
+
+更新、提交 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
